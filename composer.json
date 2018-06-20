@@ -12,10 +12,5 @@
             "email": "1129535445@qq.com"
         }
     ],
-    "minimum-stability": "dev",
-	"autoload": {
-        "psr-4": {
-            "app\\": "application"
-        }
-    }
+    "minimum-stability": "dev"
 }
