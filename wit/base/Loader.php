@@ -18,23 +18,23 @@ class Loader
     }
 
     //自动引入文件
-    private static function autoload($class)
+    private static function autoload($className)
     {
         $classMap = self::classMap();
 
-        if (isset($classMap[$class])) {
-            $file = $classMap[$class] . '.php';
-        } elseif (strpos($class, '\\') !== false) {
+        if (isset($classMap[$className])) {
+            $classFile = $classMap[$className] . '.php';
+        } elseif (strpos($className, '\\') !== false) {
             // 包含应用（application目录）文件
-            $file = APP_PATH . str_replace('\\', '/', $class) . '.php';
-            if (!is_file($file)) {
-                return;
+            $classFile = APP_PATH . str_replace('\\', '/', $className) . '.php';
+            if (!is_file($classFile)) {
+                die('类文件不存在');
             }
         } else {
             die('类文件不存在');
         }
 
-        require $file;
+        include $classFile;
     }
 
     //核心文件
