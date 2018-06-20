@@ -18,9 +18,4 @@ class Application
         echo "run";
     }
 
-    //框架路由
-    private function route() {
-
-    }
-
 }

@@ -11,10 +11,6 @@ namespace wit\base;
 
 class Loader
 {
-    private static $nameSpaceMap = [
-        'app' => 'application'
-    ];
-
     //注册加载
     public static function register()
     {
@@ -28,25 +24,17 @@ class Loader
 
         if (isset($classMap[$className])) {
             $classFile = $classMap[$className] . '.php';
+        } elseif (strpos($className, '\\') !== false) {
+            // 包含应用（application目录）文件
+            $classFile = ROOT_PATH . str_replace('\\', '/', $className) . '.php';
+            if (!is_file($classFile)) {
+                die('类文件不存在');
+            }
         } else {
-            $classFile = self::findFile($className);
+            die('类文件不存在');
         }
 
-        self::includeFile($classFile);
-    }
-
-    private static function findFile($className)
-    {
-        $classFile = '';
-
-        return $classFile;
-    }
-
-    private static function includeFile($classFile)
-    {
-        if (is_file($classFile)) {
-            include $classFile;
-        }
+        include $classFile;
     }
 
     //核心文件
