@@ -14,7 +14,7 @@ class Loader
     //注册加载
     public static function register()
     {
-        spl_autoload_register('wit\\base\\Loader::autoload', true, true);
+        spl_autoload_register(['self', 'autoload'], true, true);
     }
 
     //自动引入文件
