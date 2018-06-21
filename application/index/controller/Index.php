@@ -11,5 +11,9 @@ namespace app\index\controller;
 
 class Index
 {
+    public function __construct()
+    {
+        echo "hello world";
+    }
 
 }

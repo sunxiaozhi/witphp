@@ -12,10 +12,12 @@ namespace wit\base;
 
 class Application
 {
-    //运行框架
+    /**
+     * 运行框架
+     */
     public function run()
     {
-        echo "run";
+        new \app\index\controller\Index();
     }
 
 }
