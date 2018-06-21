@@ -62,10 +62,6 @@ class Router
         $controller = new $class();
         $action = get_class_methods($class);
 
-        if (in_array('__init', $action)) {
-            $controller->__init();
-        }
-
         if (!in_array($a, $action)) {
             Error::Thrown('找不到方法' . $a);
         }
@@ -117,9 +113,6 @@ class Router
         $controller = new $class();
 
         $action = get_class_methods($class);
-        if (in_array('__init', $action)) {
-            $controller->__init();
-        }
 
         if (!in_array($a, $action)) {
             Error::Thrown('找不到方法' . $a);
@@ -195,9 +188,6 @@ class Router
         $controller = new $class();
 
         $action = get_class_methods($class);
-        if (in_array('__init', $action)) {
-            $controller->__init();
-        }
 
         if (!in_array($a, $action)) {
             Error::Thrown('找不到方法' . $a);

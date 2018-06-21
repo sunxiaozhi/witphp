@@ -15,15 +15,12 @@ class Index extends Controller
 {
     public function __init()
     {
-    }
-
-    public function __construct()
-    {
+        P('init');
     }
 
     public function index()
     {
-        echo "index";
+        P('index');
     }
 
 }

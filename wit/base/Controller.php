@@ -11,6 +11,13 @@ namespace wit\base;
 
 class Controller
 {
+    public function __construct()
+    {
+        $this->__init();
+    }
 
+    public function __init()
+    {
+    }
 
 }
