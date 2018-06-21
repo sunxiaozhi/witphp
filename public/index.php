@@ -4,7 +4,7 @@
 defined('APP_DEBUG') or define('APP_DEBUG', true);
 
 //应用目录
-defined("APP_PATH") or define("APP_PATH", __DIR__ . '/../application');
+defined("APP_PATH") or define("APP_PATH", __DIR__ . '/../application/');
 
 //引入核心文件
 require __DIR__ . '/../wit/Wit.php';

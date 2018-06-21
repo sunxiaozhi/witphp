@@ -4,8 +4,12 @@ defined('ROOT_PATH') or define('ROOT_PATH', dirname(realpath(APP_PATH)) . '/');
 
 defined('CORE_PATH') or define('CORE_PATH', __DIR__ . '/');
 
+define('IS_WIN', strpos(PHP_OS, 'WIN') !== false);
+
 //设置时区
 date_default_timezone_set('Asia/Shanghai');
+
+require APP_PATH . 'common.php';
 
 require ROOT_PATH . 'vendor/autoload.php';
 

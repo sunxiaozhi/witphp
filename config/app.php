@@ -14,4 +14,10 @@ return [
     'default_controller' => 'Index',
     //默认操作
     'default_action' => 'index',
+    //url大小写不敏感
+    'url_insenstive' => true,
+    //url模式 1 2 3
+    'url_model' => '1',
+    //应用目录的命名空间
+    'application_namespace' => 'app',
 ];

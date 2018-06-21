@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- *
+ * 应用类
  * User: sunhuanzhi
  * Date: 2018/6/19
  * Time: 16:24
@@ -15,14 +15,9 @@ class Application
 
     }
 
-    /**
-     * @throws Exception
-     */
     public function run()
     {
-        //new Router();
-        $config = Config::get('hostname', 'database');
-        var_dump($config);
+        Router::route();
     }
 
 }
