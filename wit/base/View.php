@@ -1,14 +1,15 @@
 <?php
 /**
  * WitPHP
- * 错误处理类
+ * 视图基类
  * Author: sunhuanzhi
  * Date: 2018/6/21 16:27
  */
 
 namespace wit\base;
 
-class Exception extends \ErrorException
+
+class View
 {
 
 }

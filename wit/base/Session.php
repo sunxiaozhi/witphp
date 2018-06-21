@@ -32,7 +32,7 @@ class session
         $path = empty($config['PATH']) ? ini_get('session.save_path') : $config['PATH'];
         ini_set('session.save_path', $path);
         ini_set('session.use_trans_sid', 1);
-        self::$prefix = empty($config['PREFIX']) ? 'Z-PHP' : $config['PREFIX'];
+        self::$prefix = empty($config['prefix']) ? 'Z-PHP' : $config['prefix'];
         //SESSION开启检测
         if (!empty($config['AUTO_START']) && PHP_SESSION_ACTIVE != session_status()) {
             ini_set('session.auto_start', 0);

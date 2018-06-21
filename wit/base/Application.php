@@ -1,10 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
+ * WitPHP
  * 应用类
- * User: sunhuanzhi
- * Date: 2018/6/19
- * Time: 16:24
+ * Author: sunhuanzhi
+ * Date: 2018/6/21 16:27
  */
 
 namespace wit\base;
