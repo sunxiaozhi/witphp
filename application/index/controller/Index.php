@@ -9,18 +9,20 @@
 
 namespace app\index\controller;
 
-class Index
+use wit\base\Controller;
+
+class Index extends Controller
 {
-    public function __init() {
-        echo "init";
+    public function __init()
+    {
     }
 
     public function __construct()
     {
-        //echo "hello world";
     }
 
-    public function index() {
+    public function index()
+    {
         echo "index";
     }
 
