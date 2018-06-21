@@ -9,15 +9,20 @@
 
 namespace wit\base;
 
-
 class Application
 {
+    public function init() {
+
+    }
+
     /**
-     * 运行框架
+     * @throws Exception
      */
     public function run()
     {
-        new \app\index\controller\Index();
+        //new Router();
+        $config = Config::get('hostname', 'database');
+        var_dump($config);
     }
 
 }

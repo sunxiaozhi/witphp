@@ -14,3 +14,6 @@ require_once CORE_PATH . 'base/Loader.php';
 
 //自动注册加载
 wit\base\Loader::register();
+
+//错误异常捕获
+wit\base\Error::Register();

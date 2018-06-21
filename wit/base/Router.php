@@ -10,7 +10,11 @@
 namespace wit\base;
 
 
-class Route
+class Router
 {
+    public function __construct()
+    {
+        echo "router<br>";
+    }
 
 }

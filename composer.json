@@ -3,7 +3,8 @@
     "description": "WitPHP framework",
     "type": "project",
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "filp/whoops": "^2.1@dev"
     },
     "license": "MIT",
     "authors": [
