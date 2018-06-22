@@ -8,6 +8,9 @@
  */
 
 return [
+    'default_charset' => 'UTF-8',
+
+
     //默认模块
     'default_module' => 'index',
     //默认控制器
@@ -20,4 +23,11 @@ return [
     'url_model' => '1',
     //应用目录的命名空间
     'application_namespace' => 'app',
+
+    'tmpl_parse_string' => [],
+    'template_cache' => true,
+    'tag_block_left' => '{%',
+    'tag_block_right' => '%}',
+    'tag_variable_lfet' => '{{',
+    'tag_variable_right' => '}}',
 ];

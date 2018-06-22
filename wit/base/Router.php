@@ -50,7 +50,7 @@ class Router
 
         //定义当前模块控制器方法
         define('MODULE_NAME', $m);
-        define('controller_NAME', $c);
+        define('CONTROLLER_NAME', $c);
         define('ACTION_NAME', $a);
 
         //加载模块和控制器方法
@@ -100,7 +100,7 @@ class Router
 
         //定义当前模块控制器方法
         define('MODULE_NAME', $m);
-        define('controller_NAME', $c);
+        define('CONTROLLER_NAME', $c);
         define('ACTION_NAME', $a);
 
         //加载模块和控制器方法
@@ -176,7 +176,7 @@ class Router
 
         //定义当前模块控制器方法
         define('MODULE_NAME', $m);
-        define('controller_NAME', $c);
+        define('CONTROLLER_NAME', $c);
         define('ACTION_NAME', $a);
 
         //加载模块和控制器方法

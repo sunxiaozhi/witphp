@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "php": ">=5.4.0",
-        "filp/whoops": "^2.1@dev"
+        "filp/whoops": "2.2.0",
+        "twig/twig": "1.35.3"
     },
     "license": "MIT",
     "authors": [

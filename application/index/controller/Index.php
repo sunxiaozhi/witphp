@@ -15,12 +15,18 @@ class Index extends Controller
 {
     public function __init()
     {
-        P('init');
+        //P('init');
     }
 
     public function index()
     {
-        P('index');
+        //P('index');
+        $this->assign([
+            'name' => 'index',
+            'version' => '1',
+        ]);
+
+        $this->display();
     }
 
 }

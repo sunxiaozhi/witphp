@@ -36,11 +36,13 @@ class Error
         if (self::$whoops === null) {
             self::$whoops = new \Whoops\Run();
         }
+
         if (self::$headr === null) {
             self::$headr = new \Whoops\Handler\PrettyPageHandler();
         }
+
         //设置错误标题
-        self::$headr->setPageTitle('运行出现错误！');
+        self::$headr->setPageTitle('WitPHP运行出现错误！');
         self::$whoops->pushHandler(self::$headr);
         self::$whoops->register();
     }
