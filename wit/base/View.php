@@ -92,11 +92,12 @@ class View
     public function display($path = '', $file = '')
     {
         //P(self::$twigEngine->getGlobals());exit;
+        P('display');
 
-        $path = $path == '' ? APP_PATH . MODULE_NAME . '/Views/' . CONTROLLER_NAME : $path;
-        $file = $file == '' ? ACTION_NAME . '.html' : $file;
+        //$path = $path == '' ? APP_PATH . MODULE_NAME . '/Views/' . CONTROLLER_NAME : $path;
+        //$file = $file == '' ? ACTION_NAME . '.html' : $file;
 
-        self::$twigEngine->setPaths($path);
-        self::$twigEngine->display($file, $this->data);
+        //self::$twigEngine->setPaths($path);
+        //self::$twigEngine->display($file, $this->data);
     }
 }
