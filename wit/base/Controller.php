@@ -17,6 +17,10 @@ class Controller
      */
     protected $view;
 
+    /**
+     * Controller constructor.
+     * @throws Exception
+     */
     public function __construct()
     {
         $this->__init();
@@ -40,11 +44,13 @@ class Controller
     }
 
     /**
+     * @param string $file
      * @return $this
+     * @throws Exception
      */
-    protected function display()
+    protected function display($file = '')
     {
-        $this->view->display();
+        $this->view->display($file);
 
         return $this;
     }

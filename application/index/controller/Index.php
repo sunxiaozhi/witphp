@@ -1,10 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- *
- * User: sunhuanzhi
- * Date: 2018/6/19
- * Time: 20:47
+ * WitPHP
+ * Index控制器
+ * Author: sunhuanzhi
+ * Date: 2018/6/21 16:27
  */
 
 namespace app\index\controller;
@@ -15,18 +14,17 @@ class Index extends Controller
 {
     public function __init()
     {
-        //P('init');
+        P('init_action');
     }
 
     public function index()
     {
-        //P('index');
         $this->assign([
             'name' => 'index',
-            'version' => '1',
+            'version' => '4',
         ]);
 
-        $this->display();
+        $this->display('index');
     }
 
 }

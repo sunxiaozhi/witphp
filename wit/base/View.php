@@ -13,69 +13,12 @@ class View
 {
     protected $data = [];
 
-    protected static $config = null;
-
-    protected static $twigEngine = null;
-
-    protected static $twigConf = null;
-
     /**
      * View constructor.
      * @throws Exception
      */
     public function __construct()
     {
-        $this->twigInit();
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function twigInit()
-    {
-        if (self::$config === null) {
-            if (Config::get('template_cache')) {
-                $cache = ROOT_PATH . 'Runtime/Cache';
-            } else {
-                $cache = false;
-            }
-
-            self::$config = [
-                'cache' => $cache,
-                'cache_dir' => ROOT_PATH . 'Runtime/Cache/' . MODULE_NAME . '/' . CONTROLLER_NAME,
-                'debug' => APP_DEBUG
-            ];
-        }
-
-        $template_set = Config::get('tmpl_parse_string');
-
-        if (self::$twigEngine === null) {
-
-            self::$twigConf = self::$twigConf === null ? new \Twig_Loader_Filesystem() : self::$twigConf;
-
-            self::$twigEngine = new \Twig_Environment(self::$twigConf, array(
-                'cache' => self::$config['cache'],
-                'debug' => self::$config['debug'],
-                'charset' => Config::get('default_charset'),
-                'auto_reload' => true,
-                'cache_dir' => self::$config['cache_dir'],
-            ));
-
-            self::$twigEngine->addGlobal('__ROOT__', ROOT_PATH);
-
-            if (is_array($template_set)) {
-                foreach ($template_set as $k => $v) {
-                    self::$twigEngine->addGlobal($k, $v);
-                }
-            }
-        }
-
-        /*$loader = new \Twig_Loader_Array(array(
-            'index' => 'Hello {{ name }}!',
-        ));
-        $twigEngine = new \Twig_Environment($loader);
-
-        echo $twigEngine->render('index', array('name' => 'Fabien'));*/
     }
 
     public function assign($name, $value = '')
@@ -89,15 +32,36 @@ class View
         return $this;
     }
 
-    public function display($path = '', $file = '')
+    /**
+     * @param string $file
+     * @throws Exception
+     */
+    public function display($file = '')
     {
-        //P(self::$twigEngine->getGlobals());exit;
-        P('display');
+        if (Config::get('template_cache')) {
+            $cache = ROOT_PATH . 'runtime/cache';
+        } else {
+            $cache = false;
+        }
 
-        //$path = $path == '' ? APP_PATH . MODULE_NAME . '/Views/' . CONTROLLER_NAME : $path;
-        //$file = $file == '' ? ACTION_NAME . '.html' : $file;
+        $loader = new \Twig_Loader_Filesystem(APP_PATH . MODULE_NAME . '/view/' . strtolower(CONTROLLER_NAME) . '/');
+        $twig = new \Twig_Environment($loader, array(
+            'cache' => $cache,
+            'auto_reload' => true,
+        ));
 
-        //self::$twigEngine->setPaths($path);
-        //self::$twigEngine->display($file, $this->data);
+        $template_set = Config::get('tmpl_parse_string');
+
+        if (is_array($template_set)) {
+            foreach ($template_set as $k => $v) {
+                $twig->addGlobal($k, $v);
+            }
+        }
+
+        $file = $file ? $file : ACTION_NAME;
+
+        $template = $twig->load($file . '.html');
+
+        echo $template->render($this->data);
     }
 }
