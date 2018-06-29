@@ -1,10 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- *
- * User: sunhuanzhi
- * Date: 2018/6/19
- * Time: 11:35
+ * WitPHP
+ * 配置文件
+ * Author: sunhuanzhi
+ * Date: 2018/6/21 16:08
  */
 
 return [
