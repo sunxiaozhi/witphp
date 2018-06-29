@@ -5,6 +5,7 @@
  * Author: sunhuanzhi
  * Date: 2018/6/21 16:08
  */
+
 namespace wit\base;
 
 class Router
@@ -84,10 +85,11 @@ class Router
             $a = Config::get('default_action');
         } else {
             $pathinfo = explode('/', trim($url, '/'));
-            $m = $pathinfo[0];
-            $c = $pathinfo[1];
-            $suffix = strripos($pathinfo[2], '.');
-            $a = !empty($suffix) ? substr($pathinfo[2], 0, $suffix) : $pathinfo[2];
+            $m = isset($pathinfo[0]) ? $pathinfo[0] : Config::get('default_module');
+            $c = isset($pathinfo[1]) ? $pathinfo[1] : Config::get('default_controller');
+            $a = isset($pathinfo[2]) ? $pathinfo[2] : Config::get('default_action');
+            $suffix = strripos($a, '.');
+            $a = !empty($suffix) ? substr($a, 0, $suffix) : $a;
         }
 
         //解析PATHINFO多余参数
@@ -160,10 +162,11 @@ class Router
             $a = Config::get('default_action', 'index');
         } else {
             $reweite = explode('/', trim($url, '/'));
-            $m = $reweite[0];
-            $c = $reweite[1];
-            $suffix = strripos($reweite[2], '.');
-            $a = !empty($suffix) ? substr($reweite[2], 0, $suffix) : $reweite[2];
+            $m = isset($reweite[0]) ? $reweite[0] : Config::get('default_module');
+            $c = isset($reweite[1]) ? $reweite[1] : Config::get('default_controller');
+            $a = isset($reweite[2]) ? $reweite[2] : Config::get('default_action');
+            $suffix = strripos($a, '.');
+            $a = !empty($suffix) ? substr($a, 0, $suffix) : $a;
         }
 
         //解析参数
