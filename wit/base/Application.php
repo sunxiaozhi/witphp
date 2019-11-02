@@ -10,10 +10,14 @@ namespace wit\base;
 
 class Application
 {
-    public function init() {
+    public function init()
+    {
 
     }
 
+    /**
+     * @throws Exception
+     */
     public function run()
     {
         Router::route();

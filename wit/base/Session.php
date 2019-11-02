@@ -8,20 +8,21 @@
 
 namespace wit\base;
 
-class session
+class Session
 {
-    //存放SESSION前缀
+    //存放session前缀
     protected static $prefix;
 
-    //存放SESSION过期时间
+    //存放session过期时间
     protected static $time;
 
-    //当前SESSION状态
+    //当前session状态
     protected static $is_start = null;
 
     /**
-     * 初始化SESSION
-     * @param array $config 配置信息
+     * 初始化session
+     * @param array $config
+     * @throws Exception
      */
     public static function init($config = [])
     {
@@ -62,8 +63,8 @@ class session
     }
 
     /**
-     * 友好的开启SESSION
-     * @param bool $reset 是否强制开启SESSION
+     * 开启session
+     * @param bool $reset 是否强制开启session
      */
     public static function Start($reset = false)
     {
@@ -71,12 +72,14 @@ class session
     }
 
     /**
-     * 设置SESSION
+     * 设置session
+     *
      * @param $name
      * @param $value
-     * @param string $prefix SESSION作用域
+     * @param string $prefix session作用域
      * @param string $expire 过期时间
      * @return bool
+     * @throws Exception
      */
     public static function set($name, $value, $prefix = '', $expire = '')
     {
@@ -95,10 +98,12 @@ class session
     }
 
     /**
-     * 判断SESSION是否存在
+     * 判断session是否存在
+     *
      * @param $name
-     * @param string $prefix SESSION作用域
+     * @param string $prefix session作用域
      * @return bool
+     * @throws Exception
      */
     public static function has($name, $prefix = '')
     {
@@ -112,10 +117,12 @@ class session
     }
 
     /**
-     * 获取SESSION
+     * 获取session
+     *
      * @param $name
-     * @param string $prefix SESSION作用域
-     * @return bool
+     * @param string $prefix session作用域
+     * @return bool|mixed
+     * @throws Exception
      */
     public static function get($name, $prefix = '')
     {
@@ -148,10 +155,12 @@ class session
     }
 
     /**
-     * 删除SESSION
+     * 删除session
+     *
      * @param $name
-     * @param string $prefix SESSION作用域
+     * @param string $prefix session作用域
      * @return bool
+     * @throws Exception
      */
     public static function del($name, $prefix = '')
     {
@@ -166,8 +175,9 @@ class session
     }
 
     /**
-     * 清除所有SESSION数据
-     * @param string $prefix SESSION作用域
+     * 清除所有session数据
+     *
+     * @param string $prefix session作用域
      * @return bool
      */
     public static function clean($prefix = '')
@@ -181,8 +191,9 @@ class session
     }
 
     /**
-     * 重启SESSION会话
-     * @return void
+     * 重启session会话
+     *
+     * @throws Exception
      */
     public static function boot()
     {
@@ -196,6 +207,7 @@ class session
 
     /**
      * 销毁session
+     *
      * @return void
      */
     public static function destroy()
@@ -207,5 +219,4 @@ class session
         session_destroy();
         self::$is_start = null;
     }
-
 }

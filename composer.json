@@ -1,18 +1,19 @@
 {
-    "name": "sunxiaozhi/wit-php",
-    "description": "wit-php framework",
-    "type": "project",
-    "require": {
-        "php": ">=5.4.0",
-        "filp/whoops": "2.2.0",
-        "twig/twig": "1.35.3"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "sunxiaozhi",
-            "email": "1129535445@qq.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "sunxiaozhi/wit-php",
+  "description": "wit-php framework",
+  "type": "project",
+  "require": {
+    "ext-json": "*",
+    "php": ">=5.4.0",
+    "filp/whoops": "2.2.0",
+    "twig/twig": "1.35.3"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "sunxiaozhi",
+      "email": "1129535445@qq.com"
+    }
+  ],
+  "minimum-stability": "dev"
 }
