@@ -1,6 +1,6 @@
 {
-    "name": "sunxiaozhi/WitPHP",
-    "description": "WitPHP framework",
+    "name": "sunxiaozhi/wit-php",
+    "description": "wit-php framework",
     "type": "project",
     "require": {
         "php": ">=5.4.0",
