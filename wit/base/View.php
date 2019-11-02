@@ -2,7 +2,7 @@
 /**
  * WitPHP
  * 视图基类
- * Author: sunhuanzhi
+ * Author: sunxiaozhi
  * Date: 2018/6/21 16:27
  */
 
@@ -15,12 +15,16 @@ class View
 
     /**
      * View constructor.
-     * @throws Exception
      */
     public function __construct()
     {
     }
 
+    /**
+     * @param $name
+     * @param string $value
+     * @return $this
+     */
     public function assign($name, $value = '')
     {
         if (is_array($name)) {
@@ -35,6 +39,9 @@ class View
     /**
      * @param string $file
      * @throws Exception
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function display($file = '')
     {
@@ -50,7 +57,7 @@ class View
             'auto_reload' => true,
         ));
 
-        $template_set = Config::get('tmpl_parse_string');
+        $template_set = Config::get('template_parse_string');
 
         if (is_array($template_set)) {
             foreach ($template_set as $k => $v) {

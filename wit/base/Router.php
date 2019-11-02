@@ -2,7 +2,7 @@
 /**
  * WitPHP
  * 路由类
- * Author: sunhuanzhi
+ * Author: sunxiaozhi
  * Date: 2018/6/21 16:08
  */
 
@@ -45,7 +45,7 @@ class Router
         $a = isset($_GET['a']) ? $_GET['a'] : Config::get('default_action');
 
         //不区分URL大小写
-        if (Config::get('url_insenstive')) {
+        if (Config::get('url_insensitive')) {
             self::urlDecode($m, $c, $a);
         }
 
@@ -71,7 +71,7 @@ class Router
     }
 
     /**
-     * PATHINFO模式
+     * pathInfo模式
      * @throws Exception
      * @throws \Exception
      */
@@ -84,15 +84,15 @@ class Router
             $c = Config::get('default_controller');
             $a = Config::get('default_action');
         } else {
-            $pathinfo = explode('/', trim($url, '/'));
-            $m = isset($pathinfo[0]) ? $pathinfo[0] : Config::get('default_module');
-            $c = isset($pathinfo[1]) ? $pathinfo[1] : Config::get('default_controller');
-            $a = isset($pathinfo[2]) ? $pathinfo[2] : Config::get('default_action');
+            $pathInfo = explode('/', trim($url, '/'));
+            $m = isset($pathInfo[0]) ? $pathInfo[0] : Config::get('default_module');
+            $c = isset($pathInfo[1]) ? $pathInfo[1] : Config::get('default_controller');
+            $a = isset($pathInfo[2]) ? $pathInfo[2] : Config::get('default_action');
             $suffix = strripos($a, '.');
             $a = !empty($suffix) ? substr($a, 0, $suffix) : $a;
         }
 
-        //解析PATHINFO多余参数
+        //解析pathInfo多余参数
         self::parameter($url);
 
         //不区分URL大小写
@@ -125,11 +125,11 @@ class Router
 
     /**
      * 解析URL多余参数
-     * @param $parm
+     * @param $parameter
      */
-    private static function parameter($parm)
+    private static function parameter($parameter)
     {
-        $parameter = explode('/', trim($parm, '/'));
+        $parameter = explode('/', trim($parameter, '/'));
         $count = count($parameter) + 2;
         $i = 3;
         while ($i < $count) {
@@ -161,10 +161,10 @@ class Router
             $c = Config::get('default_controller', 'Index');
             $a = Config::get('default_action', 'index');
         } else {
-            $reweite = explode('/', trim($url, '/'));
-            $m = isset($reweite[0]) ? $reweite[0] : Config::get('default_module');
-            $c = isset($reweite[1]) ? $reweite[1] : Config::get('default_controller');
-            $a = isset($reweite[2]) ? $reweite[2] : Config::get('default_action');
+            $reWrite = explode('/', trim($url, '/'));
+            $m = isset($reWrite[0]) ? $reWrite[0] : Config::get('default_module');
+            $c = isset($reWrite[1]) ? $reWrite[1] : Config::get('default_controller');
+            $a = isset($reWrite[2]) ? $reWrite[2] : Config::get('default_action');
             $suffix = strripos($a, '.');
             $a = !empty($suffix) ? substr($a, 0, $suffix) : $a;
         }
@@ -209,9 +209,9 @@ class Router
     private static function urlDecode(&$m, &$c, &$a)
     {
         if (!IS_WIN) {
-            $filenames = scandir(APP_PATH . $m . '/controller/');
+            $fileNames = scandir(APP_PATH . $m . '/controller/');
             $count = strlen($c);
-            foreach ($filenames as $filename) {
+            foreach ($fileNames as $filename) {
                 $file = substr($filename, 0, $count);
                 if (strtolower($file) == strtolower($c)) {
                     $c = $file;

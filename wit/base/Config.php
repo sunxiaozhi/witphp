@@ -2,7 +2,7 @@
 /**
  * WitPHP
  * 配置类
- * Author: sunhuanzhi
+ * Author: sunxiaozhi
  * Date: 2018/6/21 16:27
  */
 

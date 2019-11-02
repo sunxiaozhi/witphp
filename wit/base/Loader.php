@@ -2,7 +2,7 @@
 /**
  * WitPHP
  * 自动加载类
- * Author: sunhuanzhi
+ * Author: sunxiaozhi
  * Date: 2018/6/21 16:27
  */
 
